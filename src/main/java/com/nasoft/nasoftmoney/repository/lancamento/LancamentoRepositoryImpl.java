@@ -11,11 +11,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
+import com.nasoft.nasoftmoney.converter.LancamentoConverter;
+import com.nasoft.nasoftmoney.converter.PageConverter;
 import com.nasoft.nasoftmoney.model.Categoria_;
 import com.nasoft.nasoftmoney.model.Lancamento;
 import com.nasoft.nasoftmoney.model.Lancamento_;
@@ -27,6 +30,9 @@ public class LancamentoRepositoryImpl implements LancamentoRepositoryQuery {
 
 	@PersistenceContext
 	private EntityManager manager;
+	
+	//@Autowired
+	//private LancamentoConverter converter;
 	
 	@Override
 	public Page<Lancamento> filtrar(LancamentoFilter lancamentoFilter, Pageable pageable) {
@@ -41,9 +47,13 @@ public class LancamentoRepositoryImpl implements LancamentoRepositoryQuery {
 		adicionarRestricoesDePaginacao(query, pageable);
 		
 		return new PageImpl<>(query.getResultList(), pageable, total(lancamentoFilter));
+		
+		//caso queira realizar a conversao por converter
+		//Page<Lancamento> lancamentos = new PageImpl<>(query.getResultList(), pageable, total(lancamentoFilter));
+		//return new PageConverter<>(lancamentos, this.converter);
+		
 	}
 	
-
 	@Override
 	public Page<ResumoLancamento> resumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
 		CriteriaBuilder builder = manager.getCriteriaBuilder();

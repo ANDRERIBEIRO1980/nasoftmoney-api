@@ -59,18 +59,13 @@ public class RefreshTokenPostProcessor implements ResponseBodyAdvice<OAuth2Acces
 
 	private void adicionarRefreshTokenNoCookie(String refreshToken, HttpServletRequest req, HttpServletResponse resp) {
 		
-		Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken);
-	    //refreshTokenCookie.setHttpOnly(true);
-		
-		System.out.println(nasoftmoneyApiProperty.getSeguranca().isEnableHttps());
-		System.out.println(req.getContextPath() + "/oauth/token");
-		System.out.println(nasoftmoneyApiProperty.getOriginPermitida() + "/oauth/token");
-		
-		refreshTokenCookie.setSecure(nasoftmoneyApiProperty.getSeguranca().isEnableHttps());		
-		//refreshTokenCookie.setPath(nasoftmoneyApiProperty.getOriginPermitida() + "/oauth/token");
-		refreshTokenCookie.setMaxAge(2592000);
-		
-		resp.addCookie(refreshTokenCookie);
+		Cookie refreshTokenCookie = new Cookie("refreshToken", refreshToken); 
+		refreshTokenCookie.setHttpOnly(true); 
+		refreshTokenCookie.setSecure(nasoftmoneyApiProperty.getSeguranca().isEnableHttps()); 
+		refreshTokenCookie.setPath(nasoftmoneyApiProperty.getOriginPermitida() + "/oauth/token"); 
+		refreshTokenCookie.setMaxAge(2592000); //30 dias
+		resp.addCookie(refreshTokenCookie); 
+
 	}
 
 }

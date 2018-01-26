@@ -1,0 +1,26 @@
+npm uninstall -g @angular/cli  			--desinstalar o angular cli
+npm cache clean                			--limpar o cache da maquina
+npm install -g @angular/cli	   			--instala o angular cli
+ng -v					       		    --versao do angular cli
+ng new meuprojeto			   			--cria projeto novo
+ng serve					   			--disponibiliza o projeto em http://localhost:4200
+ng serve --port 4201		   			--disponibiliza o projeto em outra porta http://localhost:4201
+npm install					   		    --instala as dependencias do projeto
+ng g c bem-vindo --spec=false  			--criar um novo componente sem criar o arquivo .spec
+npm install bootstrap@next --save	   	--instala o bootstrap (--save) já salva a dependencia no package.json	
+ng new nasoftmoney-ui                   --cria projeto
+npm install primeng --save				--instala o primeng e salva nas dependencia do projeto
+npm install font-awesome --save			--instala o font-awesome obrigatorio para o primeng
+npm install ng2-currency-mask --save    --instala o currency mask e salva nas dependencias do projeto
+ng g c message --spec=false --inline-template --inline-style	--cria componente inline, sem arquivo html e sem css, tudo embutido
+npm install moment --save			    --instala a biblioteca do moment para formatacao de datas
+npm install ng2-toasty --save           --instala a biblioteca para mensagens
+npm install angular2-jwt --save         --instala o angular2jwt
+ng build								--cria o build de desenvolvimento
+ng build --prod 		           	      --cria o build de producao e adiciona outros parametros de otimizacao, redução de tamanho de arquivos, irá utilizar as variaveis do environment de producao
+ng build --env=prod --output-hashing none --cria o build de producao caso o comando ng build --prod tenha erros 
+node server.js                            --executa o servidor
+
+INSTALAR EXTENSOES DO VISUAL STUDIO CODE
+Html Snippets
+Auto Import

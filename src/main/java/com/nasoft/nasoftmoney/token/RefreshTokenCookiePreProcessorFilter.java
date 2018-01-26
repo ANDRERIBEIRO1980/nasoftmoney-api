@@ -26,7 +26,6 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		System.out.println("Filtro RefreshTokenCookiePreProcessorFilter");
 		HttpServletRequest req = (HttpServletRequest) request;
 		
 		if ("/oauth/token".equalsIgnoreCase(req.getRequestURI()) 
@@ -34,6 +33,7 @@ public class RefreshTokenCookiePreProcessorFilter implements Filter {
 				&& req.getCookies() != null) {
 			for (Cookie cookie : req.getCookies()) {
 				if (cookie.getName().equals("refreshToken")) {
+					System.out.println("novo refresh token gerado");
 					String refreshToken = cookie.getValue();
 					req = new MyServletRequestWrapper(req, refreshToken);
 				}

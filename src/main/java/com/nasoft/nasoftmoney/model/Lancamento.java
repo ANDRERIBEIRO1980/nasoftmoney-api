@@ -151,4 +151,13 @@ public class Lancamento {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Lancamento [codigo=" + codigo + ", descricao=" + descricao + ", dataVencimento=" + dataVencimento
+				+ ", dataPagamento=" + dataPagamento + ", valor=" + valor + ", observacao=" + observacao + ", tipo="
+				+ tipo + ", categoria=" + categoria + ", pessoa=" + pessoa + "]";
+	}
+
+	
+	
 }

@@ -92,5 +92,11 @@ public class Pessoa {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [codigo=" + codigo + ", nome=" + nome + ", endereco=" + endereco + ", ativo=" + ativo + "]";
+	}
+	
 	
 }
