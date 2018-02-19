@@ -51,7 +51,7 @@
 			<version>11.2.0.3</version>
 		</dependency>
 		
-		<!-- Hibernate Java 8 Support converter data do banco para localdate teste-->
+		<!--teste Hibernate Java 8 Support converter data do banco para localdate teste-->
 		<dependency>
     		<groupId>org.hibernate</groupId>
     		<artifactId>hibernate-java8</artifactId>
